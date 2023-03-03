@@ -1,0 +1,143 @@
+<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session'); ?>
+
+
+<div class="page_header">
+	<div class="tab_mobile_top">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 logo_left">
+					<?php echo $this->getChildHtml("logo"); ?>
+				</div>
+				<div class="col-6 suport_no_right">
+					<ul class="header_actions">
+						<li class="suport_no">
+							<span class="number">0116 321 4124</span>
+							<span>
+								monday - friday: 9 - 5:30pm
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header content">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_main_inner">
+						<div class="mobile_tab_toggle_wrapper">
+							<span class="mobile_tab_toggle">
+								<span></span>
+								<span class="mid"></span>
+								<span></span>
+							</span>
+						</div>
+						
+						<?php echo $this->getChildHtml("logo"); ?>
+						<?php echo $this->getChildHtml("top.search"); ?>
+						<ul class="header_actions">
+							<li class="mini_cart_head">
+								<?php echo $this->getChildHtml("minicart"); ?>
+							</li>
+							<?php if($customerSession->isLoggedIn()) { ?>
+   								<li class="user logedin">
+									<a href="<?= $this->getUrl('customer/account/login') ?>" class="usear_details">
+										<img src="<?php echo $this->getViewFileUrl('images/user.svg'); ?>" alt="Customer login">
+										<img class="view_mobile" src="<?php echo $this->getViewFileUrl('images/user_white.svg'); ?>" alt="Customer login">
+									</a>
+									<div class="customer_panel_dropdown">
+										<ul class="links">
+											<li class="item">
+												<a href="<?= $this->getUrl('customer/account/') ?>">
+													<?php echo "Account"; ?>
+												</a>
+											</li>
+											<li class="item">
+												<a href="<?= $this->getUrl('customer/account/logout') ?>">
+													<?php echo "Logout"; ?>
+												</a>
+											</li>
+										</ul>
+									</div>
+									
+								</li>
+							<?php } else{ ?>
+								<li class="user">
+									<a href="<?= $this->getUrl('customer/account/login') ?>" class="usear_details">
+										<img src="<?php echo $this->getViewFileUrl('images/user.svg'); ?>" alt="Customer login">
+										<img class="view_mobile" src="<?php echo $this->getViewFileUrl('images/user_white.svg'); ?>" alt="Customer login">
+									</a>
+								</li>
+							<?php } ?>
+							
+
+							<?php //echo $this->getLayout()
+					          //->createBlock('Magento\Cms\Block\Block')
+					          //->setBlockId('_trade_link')
+					          //->toHtml(); ?>
+							<li class="suport_no">
+								<span class="number">0116 321 4124</span>
+								<span>
+								  monday - friday: 9 - 5:30pm
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main_navigation">
+		<div class="header content">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- SALE BAR STATIC-BLOCK -->
+		<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('sales-bar-block')->toHtml();?>
+	</div>
+    
+    
+    <?php //echo $this->getChildHtml("header.links"); ?>
+    <?php //echo $this->getChildHtml("currency"); ?>
+    <?php //echo $this->getChildHtml("store_language"); ?>
+    
+    <?php //echo $this->getChildHtml("top.search"); ?>
+</div>
+
+
+
+
+<div class="main_navigation_tablet">
+	<div class="header content">
+		<div class="mobile_menu_head">
+			<span class="text">Menu</span>
+			<span class="close">x</span>
+		</div>
+		<div class="mobile_menu_inner">
+			
+				<?php 
+					echo $this->getLayout()->createBlock("Magento\Theme\Block\Html\Topmenu")->setTemplate("Magento_Theme::html/topmenu.phtml")->toHtml(); ?>
+				
+		</div>
+	</div>
+</div>
+
+<!-- <div class="main_navigation_tablet"></div> -->
+
+
+
+
+
+
+
+
+
+
+

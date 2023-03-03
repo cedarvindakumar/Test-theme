@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="test_header" template="Magento_Theme::html/header.phtml" before="main.content">
+                <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml">
+                <arguments>
+                    <argument name="configProvider" xsi:type="object">Magento\Search\ViewModel\ConfigProvider</argument>
+                </arguments>
+            </block>
+            </block>
+            
+        </referenceContainer>
+        <move element="minicart" destination="test_header"/>
+        <move element="currency" destination="test_header"/>
+        <move element="logo" destination="test_header"/>
+        <move element="skip_to_content" destination="test_header"/>
+
+        <move element="page.top" destination="page.wrapper" after="test_header"/>
+
+        <referenceContainer name="header.container" remove="true"/>
+        <referenceContainer name="header.panel" remove="true"/>
+        <referenceContainer name="header-wrapper" remove="true"/>
+        <referenceContainer name="navigation.sections" remove="true" />
+    
+    </body>
+</page>

@@ -1,0 +1,163 @@
+
+
+<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session'); ?>
+<!-- <div class="main-panel-top">
+      <div class="container">
+          <div class="main-panel-inner">
+              <div class="panel wrapper">
+                <div class="header-left">
+                  <div class="panel header">
+                      <?php //echo $this->getChildHtml("currency"); ?>
+                      <?php //echo $this->getChildHtml("store_language"); ?>
+                  </div>
+                </div>
+                <div class="header-right">
+                  <div class="panel header show-icon-tablet">
+                    <div class="top-links-icon">
+                      <a href="javascript:;"><?php //echo __('Links');?></a>
+                    </div>
+                    <?php //echo $this->getChildHtml("header.links"); ?>
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+  <div class="header-main">
+  	<div class="header content header-row">
+  		<div class="header-left">
+  			<?php echo $this->getChildHtml("logo"); ?>
+  		</div>
+  		<div class="header-center">
+  			<div class="main_navigation_tablet">
+  				<div class="header content">
+  					<div class="mobile_menu_head">
+  						<span class="text">Category</span>
+  						<span class="close">x</span>
+  					</div>
+  					<div class="mobile_menu_inner">
+
+  						<?php 
+  						echo $this->getLayout()->createBlock("Magento\Theme\Block\Html\Topmenu")->setTemplate("Magento_Theme::html/topmenu.phtml")->toHtml(); ?>
+
+  					</div>
+  					<div class="user-mobile--links">
+  						<ul>
+  							<?php if($customerSession->isLoggedIn()) { ?>
+  								<li>
+  									<a href="<?php echo $this->getUrl('customer/account/logout') ?>">Logout</a>
+  								</li>
+  								
+  							<?php } else { ?>
+  								
+  								<li>
+  									<a href="<?php echo $this->getUrl('customer/account/login') ?>">Login</a>
+  								</li>
+  								<li>
+  									<a href="<?php echo $this->getUrl('customer/account/create') ?>">Register</a>
+  								</li>
+  							<?php } ?>
+  							<li>
+  								<a href="<?php echo $this->getUrl('customer/account'); ?>">My Account</a>
+  							</li>
+
+  							<li>
+  								<a href="<?php echo $this->getUrl('sales/order/history'); ?>">Order</a>
+  							</li>
+  							<li>
+  								<a href="<?php echo $this->getUrl('customer/account'); ?>">Setting</a>
+  							</li>
+  							<li class="cart">
+  								<a href="<?php echo $this->getUrl('checkout/cart'); ?>">
+  									View cart
+  								</a>
+  							</li>
+  							<li class="wishlist">
+  								<a href="<?php echo $this->getUrl('wishlist'); ?>">
+  									Wishlist
+  								</a>
+  							</li>
+  						</ul>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="header-right">
+  			<div class="header-contact">
+  				<div class="header-search header-main--action">
+  					<div class="search-area">
+  						<a href="javascript:void(0);" class="search-toggle-icon">
+  							<span>
+  								<svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+  									<circle cx="9.19531" cy="9.19239" r="6.5" transform="rotate(45 9.19531 9.19239)" stroke="black"/>
+  									<rect x="14.0234" y="13.3145" width="7" height="1" rx="0.5" transform="rotate(45 14.0234 13.3145)" fill="black"/>
+  								</svg>
+
+  							</span>
+  						</a>
+  						<?php echo $this->getChildHtml("topSearch"); ?>
+  					</div>
+  				</div>
+  				<div class="header-minicart header-main--action">
+  					<?php echo $this->getChildHtml("minicart"); ?>
+  				</div>
+  				<div class="header-account header-main--action">
+  					<a href="<?php echo $this->getBaseUrl(). 'customer/account/' ?>" class="my-account m-l-xs mr-1 mr-lg-2" title="My Account">
+  						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  							<g clip-path="url(#clip0_6654_956)">
+  								<rect width="24" height="24" fill="white"/>
+  								<circle cx="12.5" cy="8" r="3" stroke="black"/>
+  								<path d="M6 19.1924C6 15.6025 8.91015 12.6924 12.5 12.6924C16.0899 12.6924 19 15.6025 19 19.1924" stroke="black" stroke-linecap="round"/>
+  							</g>
+  							<defs>
+  								<clipPath id="clip0_6654_956">
+  									<rect width="24" height="24" fill="white"/>
+  								</clipPath>
+  							</defs>
+  						</svg>
+
+  					</a>
+  				</div>
+
+  				<div class="header-nav-toggle header-main--action">
+  					<span class="action nav-toggle--mobile">
+  						<svg width="24" height="7" viewBox="0 0 24 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+  							<line x1="0.5" y1="0.5" x2="23.5" y2="0.5" stroke="black" stroke-linecap="round"/>
+  							<line x1="0.5" y1="6.5" x2="23.5" y2="6.5" stroke="black" stroke-linecap="round"/>
+  						</svg>
+  					</span>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+
+
+  <div class="main_navigation_tablet--overlay"></div>
+
+
+  <script type="text/javascript">
+  	// require(['jquery'],function($){   
+  	// 	$(document).ready(function(){
+  	// 		$('.search-toggle-icon').on('click', function(){
+  	// 			$(this).siblings('.block.block-search').toggleClass('active');
+  	// 			$(this).toggleClass('active');
+  	// 		});
+
+  	// 		$('.nav-toggle--mobile').on('click', function(){
+  	// 			$('.main_navigation_tablet').toggleClass('active');
+  	// 			$('.main_navigation_tablet--overlay').toggleClass('active');
+  	// 			$('body').addClass('sidebar--open');
+  	// 		});
+
+  	// 		$('.mobile_menu_head span.close, .main_navigation_tablet--overlay').on('click', function() {
+  	// 			$('.main_navigation_tablet').removeClass('active');
+  	// 			$('.main_navigation_tablet--overlay').removeClass('active');
+  	// 			$('body').removeClass('sidebar--open');
+  	// 		});
+  	// 	});
+  	// });
+  </script>
